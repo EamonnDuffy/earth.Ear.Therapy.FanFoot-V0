@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Earth.Ear.Ot.FantasyFootball.DataTransferObjects. PremierLeague
+namespace Earth.Ear.Therapy.FanFoot.DataTransferObjects. PremierLeague
 {
     public class Phase
     {

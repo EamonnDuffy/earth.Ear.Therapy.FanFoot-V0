@@ -1,6 +1,6 @@
-﻿using Earth.Ear.Ot.FantasyFootball.DataTransferObjects.PremierLeague;
+﻿using Earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
 
-namespace Earth.Ear.Ot.FantasyFootball.Models
+namespace Earth.Ear.Therapy.FanFoot.Models
 {
     public class TeamViewModel
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http.Headers;
 
-namespace Earth.Ear.Ot.FantasyFootball.WebApi
+namespace Earth.Ear.Therapy.FanFoot.WebApi
 {
     public class ApiHeaders : List<KeyValuePair<string, string>>
     {

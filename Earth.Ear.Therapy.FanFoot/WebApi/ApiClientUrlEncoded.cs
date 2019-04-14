@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 
-namespace Earth.Ear.Ot.FantasyFootball.WebApi
+namespace Earth.Ear.Therapy.FanFoot.WebApi
 {
     public class ApiClientUrlEncoded : ApiClient
     {

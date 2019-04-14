@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Earth.Ear.Ot.FantasyFootball.DataTransferObjects.Google
+namespace Earth.Ear.Therapy.FanFoot.DataTransferObjects.Google
 {
     [DataContract]
     public class ReCaptchaVerifyResponseDto

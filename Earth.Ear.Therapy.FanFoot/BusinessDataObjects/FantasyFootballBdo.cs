@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Earth.Ear.Ot.FantasyFootball.DataTransferObjects.PremierLeague;
+﻿using System.Collections.Generic;
+using Earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
 
 namespace Earth.Ear.Therapy.FanFoot.BusinessDataObjects
 {

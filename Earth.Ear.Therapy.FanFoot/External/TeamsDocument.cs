@@ -1,12 +1,12 @@
-﻿using Earth.Ear.Ot.FantasyFootball.DataTransferObjects.PremierLeague;
+﻿using System;
+using System.Collections.Generic;
 using Earth.Ear.Therapy.FanFoot.BusinessDataObjects;
+using Earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
 using Spire.Doc;
 using Spire.Doc.Documents;
 using Spire.Doc.Fields;
-using System;
-using System.Collections.Generic;
 
-namespace Earth.Ear.Ot.FantasyFootball.External
+namespace Earth.Ear.Therapy.FanFoot.External
 {
     public class TeamsDocument
     {

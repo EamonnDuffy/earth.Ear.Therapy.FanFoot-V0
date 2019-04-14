@@ -1,4 +1,4 @@
-﻿namespace Earth.Ear.Ot.FantasyFootball.DataTransferObjects.Ajax
+﻿namespace Earth.Ear.Therapy.FanFoot.DataTransferObjects.Ajax
 {
     public class ContactResponseDto
     {

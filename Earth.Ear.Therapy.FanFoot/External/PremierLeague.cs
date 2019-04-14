@@ -1,12 +1,12 @@
-﻿using Earth.Ear.Ot.FantasyFootball.DataTransferObjects.PremierLeague;
-using Earth.Ear.Ot.FantasyFootball.WebApi;
-using Earth.Ear.Therapy.FanFoot.BusinessDataObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Earth.Ear.Therapy.FanFoot.BusinessDataObjects;
+using Earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
+using Earth.Ear.Therapy.FanFoot.WebApi;
 
-namespace Earth.Ear.Ot.FantasyFootball.External
+namespace Earth.Ear.Therapy.FanFoot.External
 {
     public static class PremierLeague
     {
@@ -14,7 +14,7 @@ namespace Earth.Ear.Ot.FantasyFootball.External
 
         // Introduce AutoMapper.
 
-        private static Dictionary<int, Team> ProcessTeams(FantasyFootballDto responseDto)
+        private static Dictionary<int, Team> ProcessTeams(FantasyFootballDto responseDto)   
         {
             var dictionary = new Dictionary<int, Team>();
 

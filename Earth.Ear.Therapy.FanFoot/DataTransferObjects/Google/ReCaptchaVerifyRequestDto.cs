@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Earth.Ear.Ot.FantasyFootball.DataTransferObjects.Google
+namespace Earth.Ear.Therapy.FanFoot.DataTransferObjects.Google
 {
     public class ReCaptchaVerifyRequestDto : List<KeyValuePair<string, string>>
     {
