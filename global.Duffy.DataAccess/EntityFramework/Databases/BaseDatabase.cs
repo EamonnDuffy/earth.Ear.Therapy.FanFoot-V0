@@ -31,8 +31,6 @@ namespace global.Duffy.DataAccess.EntityFramework.Databases
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("Dad");
-
             base.OnModelCreating(modelBuilder);
         }
 

@@ -4,9 +4,10 @@
 --
 --------------------------------------------------------------------------------
 
-DROP TABLE IF EXISTS DatabaseVersion;
 DROP TABLE IF EXISTS Player;
+DROP TABLE IF EXISTS Team;
 DROP TABLE IF EXISTS Season;
+DROP TABLE IF EXISTS DatabaseVersion;
 
 --------------------------------------------------------------------------------
 
@@ -33,12 +34,24 @@ CREATE TABLE Season
 
 --------------------------------------------------------------------------------
 
-CREATE TABLE Player
+CREATE TABLE Team
 (
-    PlayerId                    Integer PRIMARY KEY NOT NULL,
+    TeamId                      Integer PRIMARY KEY NOT NULL,
     SeasonId                    Integer NOT NULL,
     WeekOffset                  Integer NOT NULL,
     PremierLeagueTeamId         Integer NOT NULL,
+    TeamName                    Text NULL,
+    CreatedDateTimeUtc          Text NOT NULL,
+
+    FOREIGN KEY (SeasonId) REFERENCES Season(SeasonId)
+);
+
+--------------------------------------------------------------------------------
+
+CREATE TABLE Player
+(
+    PlayerId                    Integer PRIMARY KEY NOT NULL,
+    TeamId                      Integer NOT NULL,
     PremierLeagueElementId      Integer NOT NULL,
     PremierLeagueElementTypeId  Integer NOT NULL,
     FirstName                   Text NULL,
@@ -49,8 +62,15 @@ CREATE TABLE Player
     News                        Text NULL,
     CreatedDateTimeUtc          Text NOT NULL,
 
-    FOREIGN KEY (SeasonId) REFERENCES Season(SeasonId)
+    FOREIGN KEY (TeamId) REFERENCES Team(TeamId)
 );
+
+--------------------------------------------------------------------------------
+
+INSERT INTO DatabaseVersion
+    (Major, Minor, Build, ServicePack, Description, CreatedDateTimeUtc)
+VALUES
+    (0, 0, 0, 0, 'V0.0', datetime('now'));
 
 --------------------------------------------------------------------------------
 

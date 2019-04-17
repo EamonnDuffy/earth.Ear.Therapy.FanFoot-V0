@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases;
+using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,6 +34,12 @@ namespace Earth.Ear.Therapy.FanFoot
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<FanFootTherapyDatabase>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("FanFootTherapyDatabase")));
+
+            services.AddScoped<IFanFootTherapyDatabase, FanFootTherapyDatabase>();
+
+            services.AddTransient<IDatabaseVersionsRepository, DatabaseVersionsRepository>();
 
             services.AddMvc()
                 .AddNewtonsoftJson();
