@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace global.Duffy.DataAccess.EntityFramework.Repositories
 {
     public interface IBaseRepository<TDatabase, TEntity, TEntityIdType>
-    {
+    {  
         void Create(TEntity entity);
 
         TEntity Get(TEntityIdType entityId);
