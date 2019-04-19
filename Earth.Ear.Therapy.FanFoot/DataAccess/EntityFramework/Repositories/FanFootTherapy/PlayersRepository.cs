@@ -4,13 +4,13 @@ using global.Duffy.DataAccess.EntityFramework.Repositories;
 
 namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy
 {
-    public interface IDatabaseVersionsRepository : IBaseRepository<IFanFootTherapyDatabase, DatabaseVersionEntity, int>
+    public interface IPlayersRepository : IBaseRepository<IFanFootTherapyDatabase, PlayerEntity, int>
     {
     }
 
-    public class DatabaseVersionsRepository : BaseRepository<IFanFootTherapyDatabase, DatabaseVersionEntity, int>, IDatabaseVersionsRepository
+    public class PlayersRepository : BaseRepository<IFanFootTherapyDatabase, PlayerEntity, int>, IPlayersRepository
     {
-        public DatabaseVersionsRepository(IFanFootTherapyDatabase database) : base(database)
+        public PlayersRepository(IFanFootTherapyDatabase database) : base(database)
         {
         }
     }

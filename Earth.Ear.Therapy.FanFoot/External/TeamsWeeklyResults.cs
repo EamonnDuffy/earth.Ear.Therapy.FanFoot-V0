@@ -3,6 +3,7 @@ using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootThera
 using Earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
 using System;
 using System.Collections.Generic;
+using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
 
 namespace Earth.Ear.Therapy.FanFoot.External
 {
@@ -15,6 +16,16 @@ namespace Earth.Ear.Therapy.FanFoot.External
         private FantasyFootballBdo _fantasyFootballBdo = null;
 
         private int _teamSequenceIndex = -1;
+
+        private ITeamsRepository TeamsRepository { get; }
+
+        private IPlayersRepository PlayersRepository { get; }
+
+        public TeamsWeeklyResults(ITeamsRepository teamsRepository, IPlayersRepository playersRepository)
+        {
+            TeamsRepository = teamsRepository;
+            PlayersRepository = playersRepository;
+        }
 
         private Dictionary<int, Element> GetSpecificTeamPlayers(ElementType playerType, Dictionary<int, Element> teamPlayers)
         {

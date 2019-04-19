@@ -40,6 +40,8 @@ namespace Earth.Ear.Therapy.FanFoot
             services.AddScoped<IFanFootTherapyDatabase, FanFootTherapyDatabase>();
 
             services.AddTransient<IDatabaseVersionsRepository, DatabaseVersionsRepository>();
+            services.AddTransient<ITeamsRepository, TeamsRepository>();
+            services.AddTransient<IPlayersRepository, PlayersRepository>();
 
             services.AddMvc()
                 .AddNewtonsoftJson();
