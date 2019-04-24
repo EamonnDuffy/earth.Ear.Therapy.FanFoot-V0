@@ -12,6 +12,6 @@ namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootT
         public int SeasonId { get; set; }
         public DateTime BeginDateTimeUtc { get; set; }
         public DateTime EndDateTimeUtc { get; set; }
-        public DateTime CreateDateTimeUtc { get; set; }
+        public DateTime CreatedDateTimeUtc { get; set; }
     }
 }

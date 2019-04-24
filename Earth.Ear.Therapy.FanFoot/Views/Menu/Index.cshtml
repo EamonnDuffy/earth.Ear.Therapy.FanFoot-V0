@@ -1,0 +1,31 @@
+﻿@model Earth.Ear.Therapy.FanFoot.Models.MenuViewModel
+
+<p>Last Seasons:</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Begin Date</th>
+            <th>End Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var seasonEntity in Model.LastSeasons)
+        {
+            <tr>
+                <td>seasonEntity.SeasonId</td>
+                <td>seasonEntity.BeginDateTimeUtc</td>
+                <td>seasonEntity.EndDateTimeUtc</td>
+                <td>
+                    @Html.ActionLink("Update", "Update", new { seasonId = seasonEntity.SeasonId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>Menu:</p>
+<p>0. @Html.ActionLink("Create Season", "Create", "Season")</p>
+<p>1. @Html.ActionLink("Create Weekly Results Set", "CreateWeeklyResultsSet", "Result")</p>
+<p>2. @Html.ActionLink("Create Weekly Results Document", "CreateWeeklyResultsDocument", "Result")</p>
