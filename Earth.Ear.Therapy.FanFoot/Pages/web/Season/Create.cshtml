@@ -1,0 +1,45 @@
+﻿@page
+@model Earth.Ear.Therapy.FanFoot.Pages.web.Season.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h1>Create Season</h1>
+
+@if (Model.LastSeasons != null)
+{
+    <p>Last Seasons:</p>
+    <table border="1" class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Begin Date</th>
+                <th>End Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var seasonEntity in Model.LastSeasons)
+            {
+                <tr>
+                    <td>@seasonEntity.SeasonId</td>
+                    <td>@seasonEntity.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+                    <td>@seasonEntity.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+                    <td>
+                        @Html.ActionLink("Update", "Update", new { seasonId = seasonEntity.SeasonId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (Model.IsGet)
+{
+    <form method="POST">
+        <div>Season Date - Begin: <input type="date" asp-for="BeginDateTimeUtc" asp-format="{0:yyyy-MM-dd}" /></div>
+        <div>Season Date - End: <input type="date" asp-for="EndDateTimeUtc" asp-format="{0:yyyy-MM-dd}" /></div>
+        <input type="submit" />
+    </form>
+}
