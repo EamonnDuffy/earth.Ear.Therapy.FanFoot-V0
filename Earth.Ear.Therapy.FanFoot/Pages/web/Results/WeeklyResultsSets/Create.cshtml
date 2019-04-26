@@ -1,0 +1,38 @@
+﻿@page
+@model Earth.Ear.Therapy.FanFoot.Pages.web.WeeklyResultsSets.CreateModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<link rel="stylesheet" type="text/css" href="~/css/site.css" />
+
+<h1>Create Weekly Results Set</h1>
+
+<p>Please Wait (Elapsed: <span id="elapsedSeconds">0</span> s)...</p>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+
+<script>
+    var _elapsedSeconds = 0;
+
+    $(document).ready(function () {
+        setInterval(function () {
+            ++_elapsedSeconds;
+
+            console.log('_elapsedSeconds = ', _elapsedSeconds);
+
+            $("#elapsedSeconds").text(_elapsedSeconds);
+        }, 1000);
+
+        $.ajax({
+            type: "GET",
+            url: "Create?ajaxCallBack=true",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+                alert(response);
+            },
+            failure: function (response) {
+                alert(response);
+            }
+        });
+    });
+</script>
