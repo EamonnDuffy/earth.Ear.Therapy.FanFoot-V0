@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Threading;
 
 namespace Earth.Ear.Therapy.FanFoot.Pages.web.WeeklyResultsSets
 {
@@ -7,7 +8,9 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web.WeeklyResultsSets
     {
         private IActionResult CreateResultsSet()
         {
-            return new JsonResult(new { });
+            Thread.Sleep(5000);
+
+            return new JsonResult(new { redirectUrl = "https://www.microsoft.com/" });
         }
 
         public IActionResult OnGet(bool ajaxCallBack = false)
