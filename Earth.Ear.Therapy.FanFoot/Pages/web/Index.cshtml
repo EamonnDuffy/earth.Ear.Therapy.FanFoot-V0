@@ -28,7 +28,7 @@
                     <td>@seasonEntity.SeasonId</td>
                     <td>@seasonEntity.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
                     <td>@seasonEntity.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
-                    <td><a href="@Url.Page("./Season/Update")?seasonId=@seasonEntity.SeasonId">Update</a> | <a href="@Url.Page("./Season/Delete")?seasonId=@seasonEntity.SeasonId">Delete</a></td>
+                    <td><a href="@Url.Page("./Seasons/Update")?seasonId=@seasonEntity.SeasonId">Update</a> | <a href="@Url.Page("./Seasons/Delete")?seasonId=@seasonEntity.SeasonId">Delete</a></td>
                 </tr>
             }
         </tbody>
@@ -36,6 +36,6 @@
 }
 
 <p>Options:</p>
-<p>0. <a href="@Url.Page("./Season/Create")">Create New Season.</a></p>
-<p>1. <a href="@Url.Page("./Result/CreateWeeklyResultsSet")">Create Weekly Results Set.</a></p>
-<p>2. <a href="@Url.Page("./Result/CreateWeeklyDocument")">Create Weekly Results Document.</a></p>
+<p>0. <a href="@Url.Page("./Seasons/Create")">Create New Season.</a></p>
+<p>1. <a href="@Url.Page("./Results/CreateWeeklyResultsSet")">Create Weekly Results Set.</a></p>
+<p>2. <a href="@Url.Page("./Results/CreateWeeklyDocument")">Create Weekly Results Document.</a></p>
