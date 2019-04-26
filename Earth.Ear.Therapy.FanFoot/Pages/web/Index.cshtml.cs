@@ -6,9 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Earth.Ear.Therapy.FanFoot.Pages.web.Season
+namespace Earth.Ear.Therapy.FanFoot.Pages.web
 {
-    public class CreateModel : PageModel
+    public class IndexModel : PageModel
     {
         private ISeasonsRepository SeasonsRepository { get; }
 
@@ -22,7 +22,7 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web.Season
         [BindProperty]
         public DateTime EndDateTimeUtc { get; set; }
 
-        public CreateModel(ISeasonsRepository seasonsRepository)
+        public IndexModel(ISeasonsRepository seasonsRepository)
         {
             SeasonsRepository = seasonsRepository;
         }
@@ -39,28 +39,6 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web.Season
             LastSeasons = lastSeasons;
             BeginDateTimeUtc = beginDateTimeUtc;
             EndDateTimeUtc = beginDateTimeUtc.AddMonths(9);
-        }
-
-        public IActionResult OnPost(string action)
-        {
-            IsGet = false;
-
-            if (action == "Create")
-            {
-                // TODO: Check that the new Season does not Exist Already nor is it Active.
-
-                var seasonEntity = new SeasonEntity()
-                {
-                    BeginDateTimeUtc = BeginDateTimeUtc,
-                    EndDateTimeUtc = EndDateTimeUtc,
-                    CreatedDateTimeUtc = DateTime.UtcNow
-                };
-
-                SeasonsRepository.Create(seasonEntity);
-                SeasonsRepository.SaveChanges();
-            }
-
-            return RedirectToPage("/web/Index");
         }
     }
 }

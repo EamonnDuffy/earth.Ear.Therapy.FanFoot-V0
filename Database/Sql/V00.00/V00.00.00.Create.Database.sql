@@ -29,7 +29,8 @@ CREATE TABLE Season
     SeasonId                    Integer PRIMARY KEY NOT NULL,
     BeginDateTimeUtc            Text NOT NULL,
     EndDateTimeUtc              Text NOT NULL,
-    CreatedDateTimeUtc          Text NOT NULL
+    CreatedDateTimeUtc          Text NOT NULL,
+    UpdatedDateTimeUtc          Text NULL
 );
 
 --------------------------------------------------------------------------------

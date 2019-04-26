@@ -13,5 +13,6 @@ namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootT
         public DateTime BeginDateTimeUtc { get; set; }
         public DateTime EndDateTimeUtc { get; set; }
         public DateTime CreatedDateTimeUtc { get; set; }
+        public DateTime UpdatedDateTimeUtc { get; set; }
     }
 }

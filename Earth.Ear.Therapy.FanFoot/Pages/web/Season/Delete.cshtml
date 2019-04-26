@@ -1,0 +1,41 @@
+﻿@page
+@model Earth.Ear.Therapy.FanFoot.Pages.web.Season.DeleteModel
+@*@{
+    ViewData["Title"] = "Delete";
+}*@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<link rel="stylesheet" type="text/css" href="~/css/site.css" />
+
+<h1>Delete A Season</h1>
+
+@if (Model.Season != null)
+{
+    <table class="seasons">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Begin Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Season.SeasonId</td>
+                <td>@Model.Season.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+                <td>@Model.Season.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+@if (Model.IsGet)
+{
+    <p>Are you sure you want to Attempt to Delete the specified Season?</p>
+
+    <form method="POST">
+        <input asp-for="SeasonId" />
+        <input type="submit" name="Confirm" value="Yes" />
+        <input type="submit" name="Confirm" value="No" />
+    </form>
+}

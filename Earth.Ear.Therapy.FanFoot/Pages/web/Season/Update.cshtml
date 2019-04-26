@@ -1,17 +1,18 @@
 ﻿@page
-@model Earth.Ear.Therapy.FanFoot.Pages.web.Season.CreateModel
-@*@{
-    ViewData["Title"] = "Create";
-}*@
+@model Earth.Ear.Therapy.FanFoot.Pages.web.Season.UpdateModel
+@*
+    @{
+        ViewData["Title"] = "Update";
+    }
+*@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <link rel="stylesheet" type="text/css" href="~/css/site.css" />
 
-<h1>Create Season</h1>
+<h1>Update A Season</h1>
 
-@if (Model.LastSeasons != null)
+@if (Model.Season != null)
 {
-    <p>Last Seasons:</p>
     <table class="seasons">
         <thead>
             <tr>
@@ -21,14 +22,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var seasonEntity in Model.LastSeasons)
-            {
-                <tr>
-                    <td>@seasonEntity.SeasonId</td>
-                    <td>@seasonEntity.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
-                    <td>@seasonEntity.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
-                </tr>
-            }
+            <tr>
+                <td>@Model.Season.SeasonId</td>
+                <td>@Model.Season.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+                <td>@Model.Season.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+            </tr>
         </tbody>
     </table>
 }
@@ -38,7 +36,7 @@
 <form method="POST">
     <div>Season Date - Begin: <input type="date" asp-for="BeginDateTimeUtc" asp-format="{0:yyyy-MM-dd}" /></div>
     <div>Season Date - End: <input type="date" asp-for="EndDateTimeUtc" asp-format="{0:yyyy-MM-dd}" /></div>
-    <input type="submit" name="Action" value="Create" />
+    <input type="submit" name="Action" value="Update" />
     <input type="submit" name="Action" value="Cancel" />
 </form>
 }
