@@ -1,23 +1,24 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases;
 using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
 using Earth.Ear.Therapy.FanFoot.External;
+using log4net;
+using log4net.Config;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO;
+using System.Reflection;
 
 namespace Earth.Ear.Therapy.FanFoot
 {
     public class Startup
     {
+        private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,9 +26,20 @@ namespace Earth.Ear.Therapy.FanFoot
 
         public IConfiguration Configuration { get; }
 
+        private void ConfigureLogging(IServiceCollection services)
+        {
+            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+
+            XmlConfigurator.Configure(logRepository, new FileInfo("Log4Net.config"));
+
+            Log.Info("The Application is starting...");
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ConfigureLogging(services);
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
