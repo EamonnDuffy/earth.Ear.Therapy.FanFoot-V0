@@ -50,7 +50,7 @@ namespace Earth.Ear.Therapy.FanFoot.External
             return dictionary;
         }
 
-        public static async Task< FantasyFootballBdo> GetFantasyFootball()
+        public static async Task<FantasyFootballBdo> GetFantasyFootball()
         {
             // TODO:Implement Exception Handling.
 

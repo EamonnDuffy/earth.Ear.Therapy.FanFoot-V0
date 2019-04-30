@@ -7,7 +7,12 @@ using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootT
 
 namespace Earth.Ear.Therapy.FanFoot.External
 {
-    public class TeamsWeeklyResults
+    public interface ITeamsWeeklyResults
+    {
+        void Create(int seasonId, FantasyFootballBdo fantasyFootballBdo);
+    }
+
+    public class TeamsWeeklyResults : ITeamsWeeklyResults
     {
         private int _seasonId = -1;
 
@@ -91,6 +96,7 @@ namespace Earth.Ear.Therapy.FanFoot.External
                 // TODO: Exceptions.
 
                 PlayersRepository.Create(playerEntity);
+                PlayersRepository.SaveChanges();
             }
         }
 
@@ -102,12 +108,13 @@ namespace Earth.Ear.Therapy.FanFoot.External
                 WeekOffset = _weekOffset,
                 PremierLeagueTeamId = teamBdo.id,
                 TeamName = teamBdo.name,
-                CreatedDateTimeUtc = DateTime.UtcNow  
+                CreatedDateTimeUtc = DateTime.UtcNow
             };
 
             // TODO: Exception handling.
 
             TeamsRepository.Create(teamEntity);
+            TeamsRepository.SaveChanges();
 
             var teamPlayers = GetTeamPlayers(teamBdo);
 

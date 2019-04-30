@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases;
 using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
+using Earth.Ear.Therapy.FanFoot.External;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -43,6 +44,8 @@ namespace Earth.Ear.Therapy.FanFoot
             services.AddTransient<ISeasonsRepository, SeasonsRepository>();
             services.AddTransient<ITeamsRepository, TeamsRepository>();
             services.AddTransient<IPlayersRepository, PlayersRepository>();
+
+            services.AddTransient<ITeamsWeeklyResults, TeamsWeeklyResults>();
 
             services.AddMvc()
                 .AddNewtonsoftJson();
