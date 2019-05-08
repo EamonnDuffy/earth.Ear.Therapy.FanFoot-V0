@@ -4,16 +4,21 @@ using Earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
 using System;
 using System.Collections.Generic;
 using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
+using log4net;
+using System.Reflection;
+using Earth.Ear.Therapy.FanFoot.Extensions;
 
 namespace Earth.Ear.Therapy.FanFoot.External
 {
     public interface ITeamsWeeklyResults
     {
-        void Create(int seasonId, FantasyFootballBdo fantasyFootballBdo);
+        void Create(FantasyFootballBdo fantasyFootballBdo);
     }
 
     public class TeamsWeeklyResults : ITeamsWeeklyResults
     {
+        private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         private int _seasonId = -1;
 
         private int _weekOffset = -1;
@@ -22,12 +27,15 @@ namespace Earth.Ear.Therapy.FanFoot.External
 
         private int _teamSequenceIndex = -1;
 
+        private ISeasonsRepository SeasonsRepository { get; }
+
         private ITeamsRepository TeamsRepository { get; }
 
         private IPlayersRepository PlayersRepository { get; }
 
-        public TeamsWeeklyResults(ITeamsRepository teamsRepository, IPlayersRepository playersRepository)
+        public TeamsWeeklyResults(ISeasonsRepository seasonsRepository, ITeamsRepository teamsRepository, IPlayersRepository playersRepository)
         {
+            SeasonsRepository = seasonsRepository;
             TeamsRepository = teamsRepository;
             PlayersRepository = playersRepository;
         }
@@ -68,6 +76,8 @@ namespace Earth.Ear.Therapy.FanFoot.External
 
         private void AddTeamPlayer(TeamEntity teamEntity, ElementType playerType, Dictionary<int, Element> players)
         {
+            Log.Info($"AddTeamPlayer. teamEntity.TeamId = {teamEntity.TeamId}");
+
             var specificTeamPlayerTypes = GetSpecificTeamPlayers(playerType, players);
 
             foreach (var pair in specificTeamPlayerTypes)
@@ -96,7 +106,6 @@ namespace Earth.Ear.Therapy.FanFoot.External
                 // TODO: Exceptions.
 
                 PlayersRepository.Create(playerEntity);
-                PlayersRepository.SaveChanges();
             }
         }
 
@@ -124,10 +133,28 @@ namespace Earth.Ear.Therapy.FanFoot.External
             {
                 AddTeamPlayer(teamEntity, playerTypePair.Value, teamPlayers);
             }
+
+            PlayersRepository.SaveChanges();
         }
 
-        public void Create(int seasonId, FantasyFootballBdo fantasyFootballBdo)
+        public void Create(FantasyFootballBdo fantasyFootballBdo)
         {
+            var utcNow = DateTime.UtcNow;
+
+            var seasonEntity = SeasonsRepository.Get(utcNow);
+
+            if (seasonEntity == null)
+                throw new Exception($"There is no Season covering the Date = {utcNow:yyyy-MMM-dd}.");
+
+            _seasonId = seasonEntity.SeasonId;
+
+            _weekOffset = utcNow.GetIsoWeekOfYear();
+
+            var teamEntity = TeamsRepository.GetFirstOrDefault(entity => (entity.SeasonId == _seasonId) && (entity.WeekOffset == _weekOffset));
+
+            if (teamEntity != null)
+                throw new Exception($"There already exists a Weekly Results Set covering the Date = {utcNow:yyyy-MMM-dd}, otherwise known as Week Offset = {_weekOffset}.");
+
             _fantasyFootballBdo = fantasyFootballBdo;
 
             foreach (var teamBdoPair in _fantasyFootballBdo.Teams)

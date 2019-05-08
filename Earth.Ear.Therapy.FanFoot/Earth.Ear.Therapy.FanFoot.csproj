@@ -24,4 +24,11 @@
     <ProjectReference Include="..\global.Duffy.DataAccess\global.Duffy.DataAccess.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Content Update="Log4Net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

@@ -30,7 +30,7 @@ namespace global.Duffy.DataAccess.EntityFramework.Repositories
         where TEntity : class
         where TEntityIdType : struct
     {
-        private TDatabase Database { get; }
+        protected TDatabase Database { get; }
 
         public void Create(TEntity entity)
         {

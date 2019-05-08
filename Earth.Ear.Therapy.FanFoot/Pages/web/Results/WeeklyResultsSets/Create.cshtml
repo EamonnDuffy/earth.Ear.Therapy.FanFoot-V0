@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" type="text/css" href="~/css/site.css" />
 
-<h1>Create Weekly Results Set</h1>
+<h1>Create A Weekly Results Set</h1>
 
 <p>Please Wait (Elapsed: <span id="elapsedSeconds">0</span> s)...</p>
 
@@ -14,7 +14,7 @@
     var _elapsedSeconds = 0;
 
     $(document).ready(function () {
-        setInterval(function () {
+        var _interval = setInterval(function () {
             ++_elapsedSeconds;
 
             console.log('_elapsedSeconds = ', _elapsedSeconds);
@@ -28,9 +28,17 @@
             contentType: "application/json",
             dataType: "json",
             success: function (response) {
+                clearInterval(_interval);
+
+                if (response.resultMessage) {
+                    alert('Please Note:\n\n' + response.resultMessage);
+                }
+
                 window.location = response.redirectUrl;
             },
             failure: function (response) {
+                clearInterval(_interval);
+
                 alert(response);
             }
         });

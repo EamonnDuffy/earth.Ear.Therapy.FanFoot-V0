@@ -4,6 +4,54 @@
 
 <link rel="stylesheet" type="text/css" href="~/css/site.css" />
 
-<h1>Create Weekly Results Document</h1>
+<h1>Create A Weekly Results Document</h1>
 
-<p>Please Wait...</p>
+<p>Please Wait (Elapsed: <span id="elapsedSeconds">0</span> s)...</p>
+
+<br /><br />
+
+Result File: <span id='resultFile'></span>
+<br /><br />
+When ready: <span id='redirectUrl'></span>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+
+<script>
+    var _elapsedSeconds = 0;
+
+    $(document).ready(function () {
+        var _interval = setInterval(function () {
+            ++_elapsedSeconds;
+
+            console.log('_elapsedSeconds = ', _elapsedSeconds);
+
+            $("#elapsedSeconds").text(_elapsedSeconds);
+        }, 1000);
+
+        $.ajax({
+            type: "GET",
+            url: "Create?ajaxCallBack=true",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+                clearInterval(_interval);
+
+                if (response.resultMessage) {
+                    alert('Please Note:\n\n' + response.resultMessage);
+                }
+
+                if (!response.resultSuccess) {
+                    window.location = response.redirectUrl;
+                } else {
+                    $('#resultFile').html('<a href="/' + response.resultFile + '">' + response.resultFile + '</a>');
+                    $('#redirectUrl').html('<a href="' + response.redirectUrl + '">Return to Menu</a>');
+                }
+            },
+            failure: function (response) {
+                clearInterval(_interval);
+
+                alert(response);
+            }
+        });
+    });
+</script>

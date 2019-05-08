@@ -58,6 +58,7 @@ namespace Earth.Ear.Therapy.FanFoot
             services.AddTransient<IPlayersRepository, PlayersRepository>();
 
             services.AddTransient<ITeamsWeeklyResults, TeamsWeeklyResults>();
+            services.AddTransient<ITeamsWeeklyDocuments, TeamsWeeklyDocuments>();
 
             services.AddMvc()
                 .AddNewtonsoftJson();
