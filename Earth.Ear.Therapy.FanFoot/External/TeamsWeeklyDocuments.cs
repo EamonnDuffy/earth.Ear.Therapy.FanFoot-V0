@@ -190,7 +190,6 @@ namespace Earth.Ear.Therapy.FanFoot.External
 
             _document = new Document();
 
-            // TODO: .OrderBy(PremierLeagueTeamId) ASC.
             var teamEntities = TeamsRepository
                 .GetAll(_seasonId, _weekOffset);
 
