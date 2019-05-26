@@ -72,7 +72,7 @@ namespace Earth.Ear.Therapy.FanFoot.External
                 textRange = innerPara.AppendText(pair.Value.news);
                 textRange.CharacterFormat.FontName = "Calibri";
                 textRange.CharacterFormat.FontSize = 12;
-             }
+            }
         }
 
         private Dictionary<int, Element> GetTeamPlayers(Team teamBdo)

@@ -7,6 +7,7 @@ using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootT
 using log4net;
 using System.Reflection;
 using Earth.Ear.Therapy.FanFoot.Extensions;
+using Earth.Ear.Therapy.FanFoot.Helpers;
 
 namespace Earth.Ear.Therapy.FanFoot.External
 {
@@ -148,7 +149,7 @@ namespace Earth.Ear.Therapy.FanFoot.External
 
             _seasonId = seasonEntity.SeasonId;
 
-            _weekOffset = utcNow.GetIsoWeekOfYear();
+            _weekOffset = DateTimeHelper.GetWeekOffset(seasonEntity, utcNow);
 
             var teamEntity = TeamsRepository.GetFirstOrDefault(entity => (entity.SeasonId == _seasonId) && (entity.WeekOffset == _weekOffset));
 

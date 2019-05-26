@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Reflection;
 using Earth.Ear.Therapy.FanFoot.External;
+using log4net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Threading;
-using log4net;
 
-namespace Earth.Ear.Therapy.FanFoot.Pages.web.WeeklyResultsSets
+namespace Earth.Ear.Therapy.FanFoot.Pages.web.Results.WeeklyResultsSets
 {
     public class CreateModel : PageModel
     {

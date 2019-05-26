@@ -3,7 +3,7 @@ using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootT
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Earth.Ear.Therapy.FanFoot.Pages.web.Season
+namespace Earth.Ear.Therapy.FanFoot.Pages.web.Seasons
 {
     public class DeleteModel : PageModel
     {

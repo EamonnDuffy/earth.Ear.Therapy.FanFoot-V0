@@ -56,7 +56,7 @@ namespace Earth.Ear.Therapy.FanFoot.External
 
             FantasyFootballDto responseDto = null;
 
-            using (var apiClient = new ApiClientJson("https://fantasy.premierleague.com/drf/bootstrap-static"))
+            using (IApiClient apiClient = new ApiClientJson("https://fantasy.premierleague.com/drf/bootstrap-static"))
             {
                 var response = await apiClient.GetAsync<FantasyFootballDto>(null, null);
 

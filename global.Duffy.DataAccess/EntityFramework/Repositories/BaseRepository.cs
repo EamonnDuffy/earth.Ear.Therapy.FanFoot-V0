@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace global.Duffy.DataAccess.EntityFramework.Repositories
 {
-    public interface IBaseRepository<TDatabase, TEntity, TEntityIdType>
+    public interface IBaseRepository<TEntity, in TEntityIdType>
     {  
         void Create(TEntity entity);
 
@@ -25,7 +25,7 @@ namespace global.Duffy.DataAccess.EntityFramework.Repositories
         int SaveChanges();
     }
 
-    public class BaseRepository<TDatabase, TEntity, TEntityIdType> : IBaseRepository<TDatabase, TEntity, TEntityIdType>
+    public class BaseRepository<TDatabase, TEntity, TEntityIdType> : IBaseRepository<TEntity, TEntityIdType>
         where TDatabase : IBaseDatabase
         where TEntity : class
         where TEntityIdType : struct

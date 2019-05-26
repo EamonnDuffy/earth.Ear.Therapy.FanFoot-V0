@@ -1,8 +1,10 @@
 ﻿@page
-@model Earth.Ear.Therapy.FanFoot.Pages.web.Season.CreateModel
-@*@{
-    ViewData["Title"] = "Create";
-}*@
+@model Earth.Ear.Therapy.FanFoot.Pages.web.Seasons.CreateModel
+@*
+    @{
+        ViewData["Title"] = "Create";
+    }
+*@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <link rel="stylesheet" type="text/css" href="~/css/site.css" />
@@ -35,10 +37,10 @@
 
 @if (Model.IsGet)
 {
-<form method="POST">
-    <div>Season Date - Begin: <input type="date" asp-for="BeginDateTimeUtc" asp-format="{0:yyyy-MM-dd}" /></div>
-    <div>Season Date - End: <input type="date" asp-for="EndDateTimeUtc" asp-format="{0:yyyy-MM-dd}" /></div>
-    <input type="submit" name="Action" value="Create" />
-    <input type="submit" name="Action" value="Cancel" />
-</form>
+    <form method="POST">
+        <div>Season Date - Begin: <input type="date" asp-for="BeginDateTimeUtc" asp-format="{0:yyyy-MM-dd}" /></div>
+        <div>Season Date - End: <input type="date" asp-for="EndDateTimeUtc" asp-format="{0:yyyy-MM-dd}" /></div>
+        <input type="submit" name="Action" value="Create" />
+        <input type="submit" name="Action" value="Cancel" />
+    </form>
 }

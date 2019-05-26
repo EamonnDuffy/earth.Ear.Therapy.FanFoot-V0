@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO;
 using System.Reflection;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Earth.Ear.Therapy.FanFoot
 {
@@ -44,7 +45,6 @@ namespace Earth.Ear.Therapy.FanFoot
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
             services.AddDbContext<FanFootTherapyDatabase>(options =>
@@ -60,7 +60,8 @@ namespace Earth.Ear.Therapy.FanFoot
             services.AddTransient<ITeamsWeeklyResults, TeamsWeeklyResults>();
             services.AddTransient<ITeamsWeeklyDocuments, TeamsWeeklyDocuments>();
 
-            services.AddMvc()
+            services.AddRazorPages()
+                //.SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson();
         }
 
@@ -73,22 +74,22 @@ namespace Earth.Ear.Therapy.FanFoot
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
             }
 
             app.UseStaticFiles();
 
-            app.UseRouting(routes =>
-            {
-                routes.MapControllerRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-                routes.MapRazorPages();
-            });
-
             app.UseCookiePolicy();
 
+            app.UseRouting();
+
             app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+                endpoints.MapControllers();
+            });
         }
     }
 }

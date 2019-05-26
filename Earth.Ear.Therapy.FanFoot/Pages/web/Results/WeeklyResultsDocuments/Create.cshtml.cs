@@ -1,12 +1,11 @@
-﻿using Earth.Ear.Therapy.FanFoot.External;
+﻿using System;
+using System.Reflection;
+using Earth.Ear.Therapy.FanFoot.External;
 using log4net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
-using System.Reflection;
-using System.Threading;
 
-namespace Earth.Ear.Therapy.FanFoot.Pages.web.WeeklyResultsDocuments
+namespace Earth.Ear.Therapy.FanFoot.Pages.web.Results.WeeklyResultsDocuments
 {
     public class CreateModel : PageModel
     {
@@ -31,8 +30,6 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web.WeeklyResultsDocuments
 
                 if (!string.IsNullOrWhiteSpace(resultFile))
                     resultSuccess = true;
-
-                Thread.Sleep(5000);
             }
             catch (Exception exception)
             {

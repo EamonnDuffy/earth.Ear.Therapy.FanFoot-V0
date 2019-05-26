@@ -6,9 +6,11 @@ using System.Linq;
 
 namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy
 {
-    public interface IPlayersRepository : IBaseRepository<IFanFootTherapyDatabase, PlayerEntity, int>
+    public interface IPlayersRepository : IBaseRepository<PlayerEntity, int>
     {
-        IEnumerable<PlayerEntity> Get(int teamId);
+        PlayerEntity GetMostRecent(int seasonId, int premierLeagueElementId);
+
+        IEnumerable<PlayerEntity> GetAll(int teamId);
     }
 
     public class PlayersRepository : BaseRepository<IFanFootTherapyDatabase, PlayerEntity, int>, IPlayersRepository
@@ -17,7 +19,26 @@ namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanF
         {
         }
 
-        public IEnumerable<PlayerEntity> Get(int teamId)
+        public PlayerEntity GetMostRecent(int seasonId, int premierLeagueElementId)
+        {
+#if false
+            var playerEntity = Database
+                .Context
+                .Set<PlayerEntity>()
+                .Where(entity => (entity.SeasonId == seasonId) && (entity.)
+#else
+            var playerEntity = (from player in Database.Context.Set<PlayerEntity>()
+                               join team in Database.Context.Set<TeamEntity>()
+                                   on player.TeamId equals team.TeamId
+                               where team.SeasonId == seasonId && player.PremierLeagueElementId == premierLeagueElementId
+                               orderby team.WeekOffset descending
+                               select player).ToList().FirstOrDefault();
+#endif
+
+            return playerEntity;
+        }
+
+        public IEnumerable<PlayerEntity> GetAll(int teamId)
         {
             var playerEntities = Database
                 .Context

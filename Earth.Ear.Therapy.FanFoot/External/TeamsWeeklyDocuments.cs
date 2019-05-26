@@ -1,6 +1,7 @@
 ﻿using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
 using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
 using Earth.Ear.Therapy.FanFoot.Extensions;
+using Earth.Ear.Therapy.FanFoot.Helpers;
 using log4net;
 using Spire.Doc;
 using Spire.Doc.Documents;
@@ -49,6 +50,9 @@ namespace Earth.Ear.Therapy.FanFoot.External
 
             TextRange textRange = null;
 
+            int totalPoints = 0;
+            int deltaPoints = 0;
+
             foreach (var playerEntity in playerEntities)
             {
                 if (playerEntity.PremierLeagueElementTypeId != lastElementTypeId)
@@ -65,6 +69,15 @@ namespace Earth.Ear.Therapy.FanFoot.External
                     lastElementTypeId = playerEntity.PremierLeagueElementTypeId;
                 }
 
+                totalPoints = playerEntity.TotalPoints;
+
+                var mostRecentPlayerEntity = PlayersRepository.GetMostRecent(teamEntity.SeasonId, playerEntity.PremierLeagueElementId);
+
+                if (mostRecentPlayerEntity != null)
+                {
+                    deltaPoints = totalPoints - mostRecentPlayerEntity.TotalPoints;
+                }
+
                 tableRow = teamTable.AddRow(5);
 
                 innerPara = tableRow.Cells[0].AddParagraph();
@@ -78,7 +91,14 @@ namespace Earth.Ear.Therapy.FanFoot.External
                 textRange.CharacterFormat.FontSize = 12;
 
                 innerPara = tableRow.Cells[2].AddParagraph();
-                textRange = innerPara.AppendText($"{playerEntity.TotalPoints}");
+                if (deltaPoints == 0)
+                {
+                    textRange = innerPara.AppendText($"{totalPoints}");
+                }
+                else
+                {
+                    textRange = innerPara.AppendText($"{totalPoints} ({deltaPoints})");
+                }
                 textRange.CharacterFormat.FontName = "Calibri";
                 textRange.CharacterFormat.FontSize = 12;
 
@@ -143,18 +163,9 @@ namespace Earth.Ear.Therapy.FanFoot.External
             textRange.CharacterFormat.Bold = true;
 
             var playerEntities = PlayersRepository
-                .Get(teamEntity.TeamId);
+                .GetAll(teamEntity.TeamId);
 
             AddTeamPlayers(teamTable, teamEntity, playerEntities);
-
-#if false
-            var teamPlayers = GetTeamPlayers(teamBdo);
-
-            foreach (var playerTypePair in _fantasyFootballBdo.PlayerTypes)
-            {
-                AddTeamPlayerType(teamTable, teamBdo, playerTypePair.Value, teamPlayers);
-            }
-#endif
         }
 
         public string Create()
@@ -170,7 +181,7 @@ namespace Earth.Ear.Therapy.FanFoot.External
 
             _seasonId = seasonEntity.SeasonId;
 
-            _weekOffset = utcNow.GetIsoWeekOfYear();
+            _weekOffset = DateTimeHelper.GetWeekOffset(seasonEntity, utcNow);
 
             var firstResultsSet = TeamsRepository.GetFirstOrDefault(entity => (entity.SeasonId == _seasonId) && (entity.WeekOffset == _weekOffset));
 
@@ -181,7 +192,7 @@ namespace Earth.Ear.Therapy.FanFoot.External
 
             // TODO: .OrderBy(PremierLeagueTeamId) ASC.
             var teamEntities = TeamsRepository
-                .GetMany(entity => (entity.SeasonId == _seasonId) && (entity.WeekOffset == _weekOffset));
+                .GetAll(_seasonId, _weekOffset);
 
             foreach (var teamEntity in teamEntities)
             {
@@ -190,13 +201,11 @@ namespace Earth.Ear.Therapy.FanFoot.External
 
             HeaderFooter footer = _document.Sections[0].HeadersFooters.Footer;
             Paragraph footerParagraph = footer.AddParagraph();
-            var textRange = footerParagraph.AppendText("Page ");
+            var textRange = footerParagraph.AppendText($"Season Id = {_seasonId} : Week Offset = {_weekOffset} : Page ");
             textRange.CharacterFormat.FontName = "Calibri";
             textRange = footerParagraph.AppendField("page number", FieldType.FieldPage);
             textRange.CharacterFormat.FontName = "Calibri";
-            //footerParagraph.AppendText(" of ");
-            //footerParagraph.AppendField("number of pages", FieldType.FieldSectionPages);
-            footerParagraph.Format.HorizontalAlignment = HorizontalAlignment.Right;
+            footerParagraph.Format.HorizontalAlignment = HorizontalAlignment.Center;
 
             resultFile = $"Therapy Fantasy Football - {DateTime.UtcNow:yyyy-MMM-dd}.docx";
 

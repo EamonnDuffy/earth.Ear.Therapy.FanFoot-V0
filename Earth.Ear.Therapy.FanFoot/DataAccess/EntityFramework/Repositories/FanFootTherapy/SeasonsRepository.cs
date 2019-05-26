@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy
 {
-    public interface ISeasonsRepository : IBaseRepository<IFanFootTherapyDatabase, SeasonEntity, int>
+    public interface ISeasonsRepository : IBaseRepository<SeasonEntity, int>
     {
         SeasonEntity Get(DateTime dateTimeUtc);
     }

@@ -4,7 +4,7 @@ using global.Duffy.DataAccess.EntityFramework.Repositories;
 
 namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy
 {
-    public interface IDatabaseVersionsRepository : IBaseRepository<IFanFootTherapyDatabase, DatabaseVersionEntity, int>
+    public interface IDatabaseVersionsRepository : IBaseRepository<DatabaseVersionEntity, int>
     {
     }
 
