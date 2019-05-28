@@ -20,6 +20,7 @@
                 <th>Id</th>
                 <th>Begin Date</th>
                 <th>End Date</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
                     <td>@seasonEntity.SeasonId</td>
                     <td>@seasonEntity.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
                     <td>@seasonEntity.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+                    <td>@seasonEntity.Description</td>
                 </tr>
             }
         </tbody>
@@ -38,9 +40,10 @@
 @if (Model.IsGet)
 {
     <form method="POST">
-        <div>Season Date - Begin: <input type="date" asp-for="BeginDateTimeUtc" asp-format="{0:yyyy-MM-dd}" /></div>
-        <div>Season Date - End: <input type="date" asp-for="EndDateTimeUtc" asp-format="{0:yyyy-MM-dd}" /></div>
-        <input type="submit" name="Action" value="Create" />
-        <input type="submit" name="Action" value="Cancel" />
+        <div>Season Description: <input type="text" asp-for="Description"/></div>
+        <div>Season Date - Begin: <input type="date" asp-for="BeginDateTimeUtc" asp-format="{0:yyyy-MM-dd}"/></div>
+        <div>Season Date - End: <input type="date" asp-for="EndDateTimeUtc" asp-format="{0:yyyy-MM-dd}"/></div>
+        <input type="submit" name="Action" value="Create"/>
+        <input type="submit" name="Action" value="Cancel"/>
     </form>
 }

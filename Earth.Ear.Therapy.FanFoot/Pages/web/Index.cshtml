@@ -18,6 +18,7 @@
                 <th>Id</th>
                 <th>Begin Date</th>
                 <th>End Date</th>
+                <th>Description</th>
                 <th></th>
             </tr>
         </thead>
@@ -28,6 +29,7 @@
                     <td>@seasonEntity.SeasonId</td>
                     <td>@seasonEntity.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
                     <td>@seasonEntity.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+                    <td>@seasonEntity.Description</td>
                     <td><a href="@Url.Page("./Seasons/Update")?seasonId=@seasonEntity.SeasonId">Update</a> | <a href="@Url.Page("./Seasons/Delete")?seasonId=@seasonEntity.SeasonId">Delete</a></td>
                 </tr>
             }

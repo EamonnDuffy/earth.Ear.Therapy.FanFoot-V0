@@ -17,6 +17,9 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web.Seasons
         public List<SeasonEntity> LastSeasons { get; private set; }
 
         [BindProperty]
+        public string Description { get; set; }
+
+        [BindProperty]
         public DateTime BeginDateTimeUtc { get; set; }
 
         [BindProperty]
@@ -51,6 +54,7 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web.Seasons
 
                 var seasonEntity = new SeasonEntity()
                 {
+                    Description = Description,
                     BeginDateTimeUtc = BeginDateTimeUtc,
                     EndDateTimeUtc = EndDateTimeUtc,
                     CreatedDateTimeUtc = DateTime.UtcNow
