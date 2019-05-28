@@ -18,6 +18,9 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web.Seasons
         public SeasonEntity Season { get; private set; }
 
         [BindProperty]
+        public string Description { get; set; }
+
+        [BindProperty]
         public DateTime BeginDateTimeUtc { get; set; }
 
         [BindProperty]
@@ -38,6 +41,7 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web.Seasons
 
             if (seasonEntity != null)
             {
+                Description = seasonEntity.Description;
                 BeginDateTimeUtc = seasonEntity.BeginDateTimeUtc;
                 EndDateTimeUtc = seasonEntity.EndDateTimeUtc;
             }
@@ -55,6 +59,7 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web.Seasons
 
                 if (seasonEntity != null)
                 {
+                    seasonEntity.Description = Description;
                     seasonEntity.BeginDateTimeUtc = BeginDateTimeUtc;
                     seasonEntity.EndDateTimeUtc = EndDateTimeUtc;
                     seasonEntity.UpdatedDateTimeUtc = DateTime.UtcNow;
