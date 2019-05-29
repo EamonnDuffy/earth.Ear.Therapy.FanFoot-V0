@@ -14,30 +14,35 @@
     <p>Last Seasons:</p>
     <table class="seasons">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Begin Date</th>
-                <th>End Date</th>
-                <th>Description</th>
-                <th></th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Begin Date</th>
+            <th>End Date</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var seasonEntity in Model.LastSeasons)
-            {
-                <tr>
-                    <td>@seasonEntity.SeasonId</td>
-                    <td>@seasonEntity.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
-                    <td>@seasonEntity.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
-                    <td>@seasonEntity.Description</td>
-                    <td><a href="@Url.Page("./Seasons/Update")?seasonId=@seasonEntity.SeasonId">Update</a> | <a href="@Url.Page("./Seasons/Delete")?seasonId=@seasonEntity.SeasonId">Delete</a></td>
-                </tr>
-            }
+        @foreach (var seasonEntity in Model.LastSeasons)
+        {
+            <tr>
+                <td>@seasonEntity.SeasonId</td>
+                <td>@seasonEntity.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+                <td>@seasonEntity.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+                <td>@seasonEntity.Description</td>
+                @*
+                <td><a href="@Url.Page("./Seasons/Update")?seasonId=@seasonEntity.SeasonId">Update</a> | <a href="@Url.Page("./Seasons/Delete")?seasonId=@seasonEntity.SeasonId">Delete</a></td>
+                *@
+                <td><a href="@Url.Page("./Seasons/Delete")?seasonId=@seasonEntity.SeasonId">Delete</a></td>
+            </tr>
+        }
         </tbody>
     </table>
+
+    <br />
 }
 
 <p>Options:</p>
-<p>0. <a href="@Url.Page("./Seasons/Create")">Create A New Season.</a></p>
-<p>1. <a href="@Url.Page("./Results/WeeklyResultsSets/Create")">Create A Weekly Results Set.</a></p>
-<p>2. <a href="@Url.Page("./Results/WeeklyResultsDocuments/Create")">Create A Weekly Results Document.</a></p>
+<p>1. <a href="@Url.Page("./Seasons/Create")">Create A New Season.</a></p>
+<p>2. <a href="@Url.Page("./Results/WeeklyResultsSets/Create")">Create A Weekly Results Set.</a></p>
+<p>3. <a href="@Url.Page("./Results/WeeklyResultsDocuments/Create")">Create A Weekly Results Document.</a></p>

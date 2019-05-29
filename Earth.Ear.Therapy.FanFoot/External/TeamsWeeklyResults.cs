@@ -154,7 +154,7 @@ namespace Earth.Ear.Therapy.FanFoot.External
             var teamEntity = TeamsRepository.GetFirstOrDefault(entity => (entity.SeasonId == _seasonId) && (entity.WeekOffset == _weekOffset));
 
             if (teamEntity != null)
-                throw new Exception($"There already exists a Weekly Results Set covering the Date = {utcNow:yyyy-MMM-dd}, otherwise known as Week Offset = {_weekOffset}.");
+                throw new Exception($"There already exists a Weekly Results Set covering the Date = {utcNow:yyyy-MMM-dd}, otherwise known as Season Id = {_seasonId} and Week Offset = {_weekOffset}.");
 
             _fantasyFootballBdo = fantasyFootballBdo;
 

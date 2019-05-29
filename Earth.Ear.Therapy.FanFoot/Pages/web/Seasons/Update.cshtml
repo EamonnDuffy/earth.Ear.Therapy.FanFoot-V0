@@ -15,22 +15,24 @@
 {
     <table class="seasons">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Begin Date</th>
-                <th>End Date</th>
-                <th>Description</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Begin Date</th>
+            <th>End Date</th>
+            <th>Description</th>
+        </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>@Model.Season.SeasonId</td>
-                <td>@Model.Season.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
-                <td>@Model.Season.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
-                <td>@Model.Season.Description</td>
-            </tr>
+        <tr>
+            <td>@Model.Season.SeasonId</td>
+            <td>@Model.Season.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+            <td>@Model.Season.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
+            <td>@Model.Season.Description</td>
+        </tr>
         </tbody>
     </table>
+    
+    <br />
 }
 
 @if (Model.IsGet)
