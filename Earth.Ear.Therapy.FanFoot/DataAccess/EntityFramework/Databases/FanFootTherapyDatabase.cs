@@ -21,8 +21,6 @@ namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=..\\Database\\FanFoot.Therapy.V000.db");
-
             base.OnConfiguring(optionsBuilder);
         }
 

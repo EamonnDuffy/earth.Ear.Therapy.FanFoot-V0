@@ -1,3 +1,5 @@
+using System;
+using System.Globalization;
 using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases;
 using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
 using Earth.Ear.Therapy.FanFoot.External;
@@ -27,19 +29,32 @@ namespace Earth.Ear.Therapy.FanFoot
 
         public IConfiguration Configuration { get; }
 
-        private void ConfigureLogging(IServiceCollection services)
+        private void ConfigureLogging()
         {
-            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+            try
+            {
+                var entryAssembly = Assembly.GetEntryAssembly();
 
-            XmlConfigurator.Configure(logRepository, new FileInfo("Log4Net.config"));
+                var assemblyPath = Path.GetDirectoryName(entryAssembly.Location);
 
-            Log.Info("The Application is starting...");
+                var logRepository = LogManager.GetRepository(entryAssembly);
+
+                using (var fileStream = File.Open(Path.Combine(assemblyPath, "Log4Net.config"), FileMode.Open))
+                {
+                    var collection = XmlConfigurator.Configure(logRepository, fileStream);
+                }
+
+                Log.Info("The Application is starting...");
+            }
+            catch (Exception exception)
+            {
+            }
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            ConfigureLogging(services);
+            ConfigureLogging();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -68,6 +83,12 @@ namespace Earth.Ear.Therapy.FanFoot
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var cultureInfo = new CultureInfo("en-IE");
+            //cultureInfo.NumberFormat.CurrencySymbol = "€";
+
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
