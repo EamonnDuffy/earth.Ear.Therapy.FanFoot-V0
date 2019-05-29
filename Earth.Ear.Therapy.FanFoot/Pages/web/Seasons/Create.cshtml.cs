@@ -41,7 +41,7 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web.Seasons
 
             LastSeasons = lastSeasons;
             BeginDateTimeUtc = beginDateTimeUtc;
-            EndDateTimeUtc = beginDateTimeUtc.AddMonths(9);
+            EndDateTimeUtc = beginDateTimeUtc;
         }
 
         public IActionResult OnPost(string action)

@@ -16,12 +16,6 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web
 
         public List<SeasonEntity> LastSeasons { get; private set; }
 
-        [BindProperty]
-        public DateTime BeginDateTimeUtc { get; set; }
-
-        [BindProperty]
-        public DateTime EndDateTimeUtc { get; set; }
-
         public IndexModel(ISeasonsRepository seasonsRepository)
         {
             SeasonsRepository = seasonsRepository;
@@ -37,8 +31,6 @@ namespace Earth.Ear.Therapy.FanFoot.Pages.web
             var beginDateTimeUtc = DateTime.UtcNow;
 
             LastSeasons = lastSeasons;
-            BeginDateTimeUtc = beginDateTimeUtc;
-            EndDateTimeUtc = beginDateTimeUtc.AddMonths(9);
         }
     }
 }
