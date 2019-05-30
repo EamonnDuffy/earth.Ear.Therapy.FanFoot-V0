@@ -84,6 +84,11 @@ namespace earth.Ear.Therapy.FanFoot.External
             {
 #if DEBUG
                 var elementTypeId = pair.Value.element_type;
+
+                if (elementTypeId != playerType.id)
+                {
+                    int breakPoint = 1;
+                }
 #endif
 
                 var playerEntity = new PlayerEntity()

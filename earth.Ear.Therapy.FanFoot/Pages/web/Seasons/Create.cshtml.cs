@@ -55,8 +55,8 @@ namespace earth.Ear.Therapy.FanFoot.Pages.web.Seasons
                 var seasonEntity = new SeasonEntity()
                 {
                     Description = Description,
-                    BeginDateTimeUtc = BeginDateTimeUtc,
-                    EndDateTimeUtc = EndDateTimeUtc,
+                    BeginDateTimeUtc = BeginDateTimeUtc.Date,
+                    EndDateTimeUtc = EndDateTimeUtc.Date.AddDays(1).AddMilliseconds(-1),
                     CreatedDateTimeUtc = DateTime.UtcNow
                 };
 

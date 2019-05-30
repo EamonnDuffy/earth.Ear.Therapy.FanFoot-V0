@@ -22,8 +22,7 @@ namespace earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanF
             var seasonEntity = Database
                 .Context
                 .Set<SeasonEntity>()
-                .Where(entity => (dateTimeUtc >= entity.BeginDateTimeUtc) && (dateTimeUtc <= entity.EndDateTimeUtc))
-                .FirstOrDefault();
+                .FirstOrDefault(entity => (dateTimeUtc >= entity.BeginDateTimeUtc) && (dateTimeUtc <= entity.EndDateTimeUtc));
 
             return seasonEntity;
         }
