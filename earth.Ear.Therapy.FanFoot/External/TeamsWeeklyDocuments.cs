@@ -70,11 +70,11 @@ namespace earth.Ear.Therapy.FanFoot.External
 
                 totalPoints = playerEntity.TotalPoints;
 
-                var mostRecentPlayerEntity = PlayersRepository.GetMostRecent(teamEntity.SeasonId, playerEntity.PremierLeagueElementId);
+                var previousLastPlayerEntity = PlayersRepository.GetPreviousLast(teamEntity.SeasonId, playerEntity.PremierLeagueElementId, _weekOffset);
 
-                if (mostRecentPlayerEntity != null)
+                if (previousLastPlayerEntity != null)
                 {
-                    deltaPoints = totalPoints - mostRecentPlayerEntity.TotalPoints;
+                    deltaPoints = totalPoints - previousLastPlayerEntity.TotalPoints;
                 }
 
                 tableRow = teamTable.AddRow(5);
