@@ -6,26 +6,17 @@ namespace earth.Ear.Therapy.FanFoot.DataTransferObjects.Google
     {
         public string secret
         {
-            set
-            {
-                Add(new KeyValuePair<string, string>("secret", value));
-            }
+            set => Add(new KeyValuePair<string, string>("secret", value));
         }
 
         public string response
         {
-            set
-            {
-                Add(new KeyValuePair<string, string>("response", value));
-            }
+            set => Add(new KeyValuePair<string, string>("response", value));
         }
 
         public string remoteip
         {
-            set
-            {
-                Add(new KeyValuePair<string, string>("remoteip", value));
-            }
+            set => Add(new KeyValuePair<string, string>("remoteip", value));
         }
     }
 }
