@@ -185,7 +185,7 @@ namespace earth.Ear.Therapy.FanFoot.External
             var firstResultsSet = TeamsRepository.GetFirstOrDefault(entity => (entity.SeasonId == _seasonId) && (entity.WeekOffset == _weekOffset));
 
             if (firstResultsSet == null)
-                throw new Exception($"There is no Weekly Results Set covering the Date = {utcNow:yyyy-MMM-dd}, otherwise known as Week Offset = {_weekOffset}.");
+                throw new Exception($"There is no Weekly Results Set covering the Date = {utcNow:yyyy-MMM-dd}, otherwise known as Season Id = {_seasonId} and Week Offset = {_weekOffset}.");
 
             _document = new Document();
 
@@ -205,7 +205,7 @@ namespace earth.Ear.Therapy.FanFoot.External
             textRange.CharacterFormat.FontName = "Calibri";
             footerParagraph.Format.HorizontalAlignment = HorizontalAlignment.Center;
 
-            resultFile = $"Therapy Fantasy Football - {DateTime.UtcNow:yyyy-MMM-dd}.docx";
+            resultFile = $"Fantasy Football Assistant - {DateTime.UtcNow:yyyy-MMM-dd}.docx";
 
             _document.SaveToFile($"wwwroot\\{resultFile}", FileFormat.Docx2013);
 
