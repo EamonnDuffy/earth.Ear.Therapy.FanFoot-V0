@@ -1,12 +1,11 @@
-﻿using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
-using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
-using Microsoft.AspNetCore.Mvc;
+﻿using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
+using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Earth.Ear.Therapy.FanFoot.Pages.web
+namespace earth.Ear.Therapy.FanFoot.Pages.web
 {
     public class IndexModel : PageModel
     {

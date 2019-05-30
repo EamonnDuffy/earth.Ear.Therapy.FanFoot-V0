@@ -1,10 +1,10 @@
-﻿using System;
-using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
-using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
+﻿using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
+using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 
-namespace Earth.Ear.Therapy.FanFoot.Pages.web.Seasons
+namespace earth.Ear.Therapy.FanFoot.Pages.web.Seasons
 {
     public class UpdateModel : PageModel
     {

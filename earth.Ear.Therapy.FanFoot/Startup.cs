@@ -1,22 +1,20 @@
-using System;
-using System.Globalization;
-using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases;
-using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
-using Earth.Ear.Therapy.FanFoot.External;
+using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases;
+using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
+using earth.Ear.Therapy.FanFoot.External;
 using log4net;
 using log4net.Config;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
-using Microsoft.AspNetCore.Mvc;
 
-namespace Earth.Ear.Therapy.FanFoot
+namespace earth.Ear.Therapy.FanFoot
 {
     public class Startup
     {

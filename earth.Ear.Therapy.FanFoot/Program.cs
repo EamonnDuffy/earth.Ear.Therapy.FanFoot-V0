@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Earth.Ear.Therapy.FanFoot
+namespace earth.Ear.Therapy.FanFoot
 {
     public class Program
     {

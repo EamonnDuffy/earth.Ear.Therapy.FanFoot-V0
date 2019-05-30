@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Threading.Tasks;
 
-namespace Earth.Ear.Therapy.FanFoot.WebApi
+namespace earth.Ear.Therapy.FanFoot.WebApi
 {
     public interface IApiClient : IDisposable
     {
