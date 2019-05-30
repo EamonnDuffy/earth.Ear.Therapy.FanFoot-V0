@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" type="text/css" href="~/css/site.css" />
 
-<h1>Update A Season</h1>
+<h1>Update A Fantasy Football Season</h1>
 
 @if (Model.Season != null)
 {
@@ -38,10 +38,13 @@
 @if (Model.IsGet)
 {
     <form method="POST">
-        <div>Season Description: <input type="text" asp-for="Description"/></div>
-        <div>Season Date - Begin: <input type="date" asp-for="BeginDateTimeUtc" asp-format="{0:yyyy-MM-dd}"/></div>
-        <div>Season Date - End: <input type="date" asp-for="EndDateTimeUtc" asp-format="{0:yyyy-MM-dd}"/></div>
-        <input type="submit" name="Action" value="Update"/>
-        <input type="submit" name="Action" value="Cancel"/>
+        <div>Season Description: <input type="text" asp-for="Description" /></div>
+        <div>Season Date - Begin: <input type="date" asp-for="BeginDateTimeUtc" asp-format="{0:yyyy-MM-dd}" disabled /></div>
+        <div>Season Date - End: <input type="date" asp-for="EndDateTimeUtc" asp-format="{0:yyyy-MM-dd}" /></div>
+        <br />
+        <p><b>NOTE:</b> To enable Results to be obtained <i>after</i> the Real Season has ended, please add 2 weeks or more (depending on Public Holidays) to the end of the Real Season when entering the Fantasy Football Season <b>End</b> Date above.</p>
+        <br />
+        <input type="submit" name="Action" value="Update" />
+        <input type="submit" name="Action" value="Cancel" />
     </form>
 }

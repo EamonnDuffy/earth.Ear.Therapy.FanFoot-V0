@@ -149,7 +149,7 @@ namespace earth.Ear.Therapy.FanFoot.External
             var seasonEntity = SeasonsRepository.Get(utcNow);
 
             if (seasonEntity == null)
-                throw new Exception($"There is no Season covering the Date = {utcNow:yyyy-MMM-dd}.");
+                throw new Exception($"There is no Fantasy Football Season covering the Date = {utcNow:yyyy-MMM-dd}.");
 
             _seasonId = seasonEntity.SeasonId;
 

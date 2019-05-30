@@ -60,8 +60,7 @@ namespace earth.Ear.Therapy.FanFoot.Pages.web.Seasons
                 if (seasonEntity != null)
                 {
                     seasonEntity.Description = Description;
-                    seasonEntity.BeginDateTimeUtc = BeginDateTimeUtc;
-                    seasonEntity.EndDateTimeUtc = EndDateTimeUtc;
+                    seasonEntity.EndDateTimeUtc = EndDateTimeUtc.Date.AddDays(1).AddMilliseconds(-1);
                     seasonEntity.UpdatedDateTimeUtc = DateTime.UtcNow;
 
                     SeasonsRepository.Update(seasonEntity);

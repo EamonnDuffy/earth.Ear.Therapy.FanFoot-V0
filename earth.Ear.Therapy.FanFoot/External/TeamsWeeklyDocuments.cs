@@ -70,11 +70,11 @@ namespace earth.Ear.Therapy.FanFoot.External
 
                 totalPoints = playerEntity.TotalPoints;
 
-                var previousLastPlayerEntity = PlayersRepository.GetPreviousLast(teamEntity.SeasonId, playerEntity.PremierLeagueElementId, _weekOffset);
+                var penultimatePlayerEntity = PlayersRepository.GetPenultimate(teamEntity.SeasonId, playerEntity.PremierLeagueElementId, _weekOffset);
 
-                if (previousLastPlayerEntity != null)
+                if (penultimatePlayerEntity != null)
                 {
-                    deltaPoints = totalPoints - previousLastPlayerEntity.TotalPoints;
+                    deltaPoints = totalPoints - penultimatePlayerEntity.TotalPoints;
                 }
 
                 tableRow = teamTable.AddRow(5);
@@ -176,7 +176,7 @@ namespace earth.Ear.Therapy.FanFoot.External
             var seasonEntity = SeasonsRepository.Get(utcNow);
 
             if (seasonEntity == null)
-                throw new Exception($"There is no Season covering the Date = {utcNow:yyyy-MMM-dd}.");
+                throw new Exception($"There is no Fantasy Football Season covering the Date = {utcNow:yyyy-MMM-dd}.");
 
             _seasonId = seasonEntity.SeasonId;
 

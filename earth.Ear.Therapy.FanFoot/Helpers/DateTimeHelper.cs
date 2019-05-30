@@ -31,7 +31,7 @@ namespace earth.Ear.Therapy.FanFoot.Helpers
             }
             else
             {
-                throw new Exception($"The specified Date ({dateTimeUtc:yyyy-MMM-dd}) does not fall within the specified Season (Season Id = {seasonEntity.SeasonId}).");
+                throw new Exception($"The specified Date ({dateTimeUtc:yyyy-MMM-dd}) does not fall within the specified Fantasy Football Season (Season Id = {seasonEntity.SeasonId}).");
             }
 
             return weekOffset;

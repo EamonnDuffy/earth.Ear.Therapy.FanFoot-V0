@@ -8,7 +8,7 @@ namespace earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanF
 {
     public interface IPlayersRepository : IBaseRepository<PlayerEntity, int>
     {
-        PlayerEntity GetPreviousLast(int seasonId, int premierLeagueElementId, int weekOffset);
+        PlayerEntity GetPenultimate(int seasonId, int premierLeagueElementId, int weekOffset);
 
         IEnumerable<PlayerEntity> GetAll(int teamId);
     }
@@ -19,7 +19,7 @@ namespace earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanF
         {
         }
 
-        public PlayerEntity GetPreviousLast(int seasonId, int premierLeagueElementId, int weekOffset)
+        public PlayerEntity GetPenultimate(int seasonId, int premierLeagueElementId, int weekOffset)
         {
             var playerEntity = (from player in Database.Context.Set<PlayerEntity>()
                                join team in Database.Context.Set<TeamEntity>()

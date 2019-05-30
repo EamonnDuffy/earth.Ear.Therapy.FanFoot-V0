@@ -11,7 +11,7 @@
 
 @if (Model.LastSeasons != null)
 {
-    <p>Last Seasons:</p>
+    <p>Last Fantasy Football Seasons:</p>
     <table class="seasons">
         <thead>
         <tr>
@@ -30,10 +30,7 @@
                 <td>@seasonEntity.BeginDateTimeUtc.ToString("yyyy-MMM-dd")</td>
                 <td>@seasonEntity.EndDateTimeUtc.ToString("yyyy-MMM-dd")</td>
                 <td>@seasonEntity.Description</td>
-                @*
                 <td><a href="@Url.Page("./Seasons/Update")?seasonId=@seasonEntity.SeasonId">Update</a> | <a href="@Url.Page("./Seasons/Delete")?seasonId=@seasonEntity.SeasonId">Delete</a></td>
-                *@
-                <td><a href="@Url.Page("./Seasons/Delete")?seasonId=@seasonEntity.SeasonId">Delete</a></td>
             </tr>
         }
         </tbody>
