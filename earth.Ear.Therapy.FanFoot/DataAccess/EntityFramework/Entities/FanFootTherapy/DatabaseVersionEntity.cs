@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy
+namespace earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy
 {
     [Table("DatabaseVersion")]
     public class DatabaseVersionEntity

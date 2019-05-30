@@ -1,7 +1,6 @@
-﻿using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
-using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
-using Earth.Ear.Therapy.FanFoot.Extensions;
-using Earth.Ear.Therapy.FanFoot.Helpers;
+﻿using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
+using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
+using earth.Ear.Therapy.FanFoot.Helpers;
 using log4net;
 using Spire.Doc;
 using Spire.Doc.Documents;
@@ -10,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Earth.Ear.Therapy.FanFoot.External
+namespace earth.Ear.Therapy.FanFoot.External
 {
     public interface ITeamsWeeklyDocuments
     {

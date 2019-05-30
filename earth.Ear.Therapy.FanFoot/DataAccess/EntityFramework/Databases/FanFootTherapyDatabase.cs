@@ -1,9 +1,8 @@
-﻿using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
-using Earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
+﻿using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
 using global.Duffy.DataAccess.EntityFramework.Databases;
 using Microsoft.EntityFrameworkCore;
 
-namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases
+namespace earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases
 {
     public interface IFanFootTherapyDatabase : IBaseDatabase
     {

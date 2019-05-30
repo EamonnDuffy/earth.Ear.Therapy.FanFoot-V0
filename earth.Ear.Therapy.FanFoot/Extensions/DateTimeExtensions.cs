@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Earth.Ear.Therapy.FanFoot.Extensions
+namespace earth.Ear.Therapy.FanFoot.Extensions
 {
     public static class DateTimeExtensions
     {

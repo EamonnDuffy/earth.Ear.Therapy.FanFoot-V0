@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace Earth.Ear.Therapy.FanFoot.Controllers.api
+namespace earth.Ear.Therapy.FanFoot.Controllers.api
 {
     [Route("api/[controller]")]
     [ApiController]

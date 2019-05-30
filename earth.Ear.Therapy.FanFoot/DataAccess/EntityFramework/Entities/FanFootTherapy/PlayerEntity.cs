@@ -1,9 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy
+namespace earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy
 {
     [Table("Player")]
     public class PlayerEntity

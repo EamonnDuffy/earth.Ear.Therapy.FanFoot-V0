@@ -1,8 +1,8 @@
-﻿using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases;
-using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
+﻿using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases;
+using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
 using global.Duffy.DataAccess.EntityFramework.Repositories;
 
-namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy
+namespace earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy
 {
     public interface IDatabaseVersionsRepository : IBaseRepository<DatabaseVersionEntity, int>
     {

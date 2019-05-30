@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Earth.Ear.Therapy.FanFoot.Pages
+namespace earth.Ear.Therapy.FanFoot.Pages
 {
     public class PrivacyModel : PageModel
     {

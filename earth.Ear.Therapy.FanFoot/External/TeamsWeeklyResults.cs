@@ -1,15 +1,14 @@
-﻿using Earth.Ear.Therapy.FanFoot.BusinessDataObjects;
-using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
-using Earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
+﻿using earth.Ear.Therapy.FanFoot.BusinessDataObjects;
+using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
+using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
+using earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
+using earth.Ear.Therapy.FanFoot.Helpers;
+using log4net;
 using System;
 using System.Collections.Generic;
-using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy;
-using log4net;
 using System.Reflection;
-using Earth.Ear.Therapy.FanFoot.Extensions;
-using Earth.Ear.Therapy.FanFoot.Helpers;
 
-namespace Earth.Ear.Therapy.FanFoot.External
+namespace earth.Ear.Therapy.FanFoot.External
 {
     public interface ITeamsWeeklyResults
     {

@@ -1,10 +1,10 @@
-﻿using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases;
-using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
+﻿using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Databases;
+using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
 using global.Duffy.DataAccess.EntityFramework.Repositories;
 using System;
 using System.Linq;
 
-namespace Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy
+namespace earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Repositories.FanFootTherapy
 {
     public interface ISeasonsRepository : IBaseRepository<SeasonEntity, int>
     {

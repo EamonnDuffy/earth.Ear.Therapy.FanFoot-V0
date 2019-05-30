@@ -1,12 +1,12 @@
-﻿using System;
+﻿using earth.Ear.Therapy.FanFoot.BusinessDataObjects;
+using earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
+using earth.Ear.Therapy.FanFoot.WebApi;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using Earth.Ear.Therapy.FanFoot.BusinessDataObjects;
-using Earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
-using Earth.Ear.Therapy.FanFoot.WebApi;
 
-namespace Earth.Ear.Therapy.FanFoot.External
+namespace earth.Ear.Therapy.FanFoot.External
 {
     public static class PremierLeague
     {

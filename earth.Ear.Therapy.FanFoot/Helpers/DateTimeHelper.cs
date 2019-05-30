@@ -1,10 +1,10 @@
-﻿using Earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
-using Earth.Ear.Therapy.FanFoot.Extensions;
+﻿using earth.Ear.Therapy.FanFoot.DataAccess.EntityFramework.Entities.FanFootTherapy;
+using earth.Ear.Therapy.FanFoot.Extensions;
 using log4net;
 using System;
 using System.Reflection;
 
-namespace Earth.Ear.Therapy.FanFoot.Helpers
+namespace earth.Ear.Therapy.FanFoot.Helpers
 {
     public static class DateTimeHelper
     {

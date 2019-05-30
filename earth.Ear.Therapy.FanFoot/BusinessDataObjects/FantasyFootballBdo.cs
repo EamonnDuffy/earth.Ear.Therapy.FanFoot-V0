@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
+﻿using earth.Ear.Therapy.FanFoot.DataTransferObjects.PremierLeague;
+using System.Collections.Generic;
 
-namespace Earth.Ear.Therapy.FanFoot.BusinessDataObjects
+namespace earth.Ear.Therapy.FanFoot.BusinessDataObjects
 {
     public class FantasyFootballBdo
     {
