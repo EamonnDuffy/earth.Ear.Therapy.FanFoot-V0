@@ -46,6 +46,7 @@ namespace earth.Ear.Therapy.FanFoot
             }
             catch (Exception exception)
             {
+                int breakPoint = 1;
             }
         }
 
