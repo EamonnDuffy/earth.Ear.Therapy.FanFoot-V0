@@ -94,7 +94,7 @@ namespace earth.Ear.Therapy.FanFoot
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/web/Error");
             }
 
             app.UseStaticFiles();
