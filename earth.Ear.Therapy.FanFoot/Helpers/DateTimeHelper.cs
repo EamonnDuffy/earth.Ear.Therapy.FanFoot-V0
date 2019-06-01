@@ -16,9 +16,9 @@ namespace earth.Ear.Therapy.FanFoot.Helpers
 
             var beginWeekNumber = seasonEntity.BeginDateTimeUtc.GetIsoWeekOfYear();
 
-            var year = dateTimeUtc.Year;
-
             var weekNumber = dateTimeUtc.GetIsoWeekOfYear();
+
+            var year = dateTimeUtc.Year;
 
             if (year == seasonEntity.BeginDateTimeUtc.Year)
             {
