@@ -37,7 +37,7 @@ namespace earth.Ear.Therapy.FanFoot
 
                 var logRepository = LogManager.GetRepository(entryAssembly);
 
-                using (var fileStream = File.Open(Path.Combine(assemblyPath, "Log4Net.config"), FileMode.Open))
+                using (var fileStream = File.Open(Path.Combine(assemblyPath, "Log4Net.config"), FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
                     var collection = XmlConfigurator.Configure(logRepository, fileStream);
                 }
